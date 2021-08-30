@@ -1,7 +1,7 @@
-import Header from './components/Header'
-import Tasks from './components/Tasks'
-import { useState } from 'react'
-
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
+import { useState } from 'react';
 
 function App() {
     const title = 'Task Tracker';
@@ -43,6 +43,7 @@ function App() {
     return (
         <div className='container'>
             <Header title={title} />
+            <AddTask />
             {tasks.length > 0 ? (
                 <Tasks
                     tasks={tasks}
