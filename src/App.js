@@ -32,11 +32,15 @@ function App() {
     }
 
   return (
-    <div className="container">
-        <Header title={title} />
-        <Tasks tasks={tasks} onDelete={deleteTask} />
-    </div>
-  )
+      <div className='container'>
+          <Header title={title} />
+          {tasks.length > 0 ? (
+              <Tasks tasks={tasks} onDelete={deleteTask} />
+          ) : (
+              'No Tasks to Show'
+          )}
+      </div>
+  );
 }
 
 export default App;
