@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function App() {
     const title = 'Task Tracker';
+    const [showAddTask, setShowAddTask] = useState(false);
     const [tasks, setTasks] = useState([
         {
             id: 1,
@@ -49,8 +50,12 @@ function App() {
 
     return (
         <div className='container'>
-            <Header title={title} />
-            <AddTask onAdd={addTask} />
+            <Header
+                title={title}
+                onAdd={() => setShowAddTask(!showAddTask)}
+                showAdd={showAddTask}
+            />
+            {showAddTask && <AddTask onAdd={addTask} />}
             {tasks.length > 0 ? (
                 <Tasks
                     tasks={tasks}
