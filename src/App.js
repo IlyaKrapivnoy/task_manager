@@ -24,23 +24,32 @@ function App() {
             day: 'Nov 15 at 12:00pm',
             reminder: false,
         },
-    ])
+    ]);
 
     // Delete Task
     const deleteTask = (id) => {
-        setTasks(tasks.filter((task) => task.id !== id))
-    }
+        setTasks(tasks.filter((task) => task.id !== id));
+    };
 
-  return (
-      <div className='container'>
-          <Header title={title} />
-          {tasks.length > 0 ? (
-              <Tasks tasks={tasks} onDelete={deleteTask} />
-          ) : (
-              'No Tasks to Show'
-          )}
-      </div>
-  );
+    // Toggle Reminder
+    const toggleReminder = (id) => {
+        console.log(id);
+    };
+
+    return (
+        <div className='container'>
+            <Header title={title} />
+            {tasks.length > 0 ? (
+                <Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                />
+            ) : (
+                'No Tasks to Show'
+            )}
+        </div>
+    );
 }
 
 export default App;
